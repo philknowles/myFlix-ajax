@@ -3,15 +3,27 @@
 <head>
     <title>myFlix Ajax Movie Database</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+    <style>
+        #search_results img {
+            max-height:250px;
+            margin-bottom:15px;
+        }
+    </style>
 </head>
 <body>
-    
+
     <input type="search" name="search" id="movie-info" />
 
+    <p id="error"></p>
+    <ul id="search_results"></ul>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
         var apiKey = 'bfb94ae6dba3bb6d845da2c9830f097b';
@@ -22,7 +34,7 @@
 
         $(document).ready(function () {
             $.ajax({
-                                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey, //General popular movies
+                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey, //General popular movies
                 //url: url + mode + input + apiKey,
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
@@ -33,16 +45,14 @@
             .done(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
-                    $('#search_results').append('<h3>' + data.results[i].title + '</h3>');
+                    $('#search_results').append('<div class="col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
+                    //$('#search_results').append('<h3>' + data.results[i].title + '</h3>');
                     //$('.slider').append('</div>');
                 }
             });
         });
     </script>
 
-    <p id="error"></p>
-    <ul id="search_results"></ul>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
