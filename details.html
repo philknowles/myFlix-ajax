@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <div id="details"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script>
+        var apiKey = 'bfb94ae6dba3bb6d845da2c9830f097b';
+
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey,
+                dataType: 'jsonp',
+                jsonCallback: 'testing'
+            })
+            .error(function (e) {
+                console.log(e.message);
+            })
+            .done(function (data) {
+                console.log(data);
+
+                for (var i = 0; i < data.results.length; i++) {
+                    $('#details').append('<p>' + data.results[i].overview + '</p>');
+                    $('#search_results').append('<h3>' + data.results[i].title + '</h3>');
+                    //$('.slider').append('</div>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
