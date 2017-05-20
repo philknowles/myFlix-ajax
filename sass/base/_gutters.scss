@@ -1,0 +1,44 @@
+﻿.no-gutter > [class*='col-'] {
+    padding-left:0;
+    @media only screen and (min-width:992px){
+        //padding-right:0;
+        padding-left:0;
+    }
+}
+
+.collapse {
+    .no-gutter > [class*='col-'] {
+        padding-left:0;
+    }
+}
+
+.no__gutter--left {
+        padding-left:0;
+    @media only screen and (min-width:768px) {
+        padding-left:0;
+    }
+}
+.no__gutter--right {
+    @media only screen and (min-width:768px) {
+        padding-right:0;
+    }
+}
+
+.m__gutter--top {
+    padding-top:15px;
+}
+
+.m__gutter-left {
+    @media only screen and (min-width:768px) {
+        margin-left:15px;
+    }
+}
+
+.l__gutter--top {
+    clear:both;
+    padding-top:25px;
+}
+
+.l__gutter--all {
+    padding:50px 10%;
+}

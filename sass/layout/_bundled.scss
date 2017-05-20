@@ -1,0 +1,94 @@
+﻿//Main Bundled Solutions section
+.bundled_solutions--row {
+//    padding:50px 0 0;
+    .last {
+        //padding-top:50px;
+        overflow:auto;
+        min-height:281px;
+        &:hover, &:focus, &:active {
+            background-color:$white-smoke;
+            a {
+                color:$light-orange;
+                text-decoration:underline;
+            }
+            .svg__ic_managing-electronic-risk, .svg__ic_surgery-anesthesia, .svg__ic_multilingual-resources, .svg__ic_well-being-center {
+                fill:$light-orange;
+            }
+        }
+    }
+    p > strong {
+        display:block;
+        font-size:14px;
+        margin:25px 0;
+    }
+    .btn__primary {
+        display:block;
+        width: 100%;
+        max-width:375px;
+        height: 40px;
+        padding: 8px 0px 3px 10px;
+        margin:10px 0 0;
+        color:$color-white;
+        border-radius: 5px;
+        background-color: rgb(222, 139, 39);
+        background-image: url(../images/svg/ic_keyboard_arrow_right_white_48px.svg);
+        background-size:35px;
+        background-repeat:no-repeat;
+        background-position:right center;
+        text-align:left;
+        font-size:16px;
+        font-weight:bold;
+
+        &:hover, &:focus, &:active {
+            text-decoration:none !important;
+            background-color:rgb(254, 180, 1);
+            color:$color-white;
+        }
+    }
+    &:last-child {
+        @media only screen and (min-width:1200px) {
+            .border__dashed {
+                border-bottom:0 !important;
+            }
+        }
+    }
+}
+
+.bundled_solutions-link {
+    display:block;
+}
+
+.last .border__dashed {
+    border-bottom:0;
+}
+
+.row__bundled--link {
+    @extend .row__manual--link;
+    background-image: url(../images/svg/ic_arrow_right_blue.svg);
+    background-repeat: no-repeat;
+    background-position:right 0;
+    background-size:35px;
+    padding-right:15px;
+}
+
+.border__dashed {
+    padding-top:50px;
+    padding-bottom:50px;
+    overflow:auto;
+    border-bottom:1px dashed;
+    min-height:281px;
+    &:hover, &:focus, &:active {
+        background-color:$white-smoke;
+        a.row__bundled--link {
+            color:$light-orange;
+            text-decoration:underline;
+            background-image: url(../images/svg/ic_keyboard_arrow_right_orange.svg);
+        }
+        //Hover state specific to the class border__dashed in bundled solutions
+        .svg__ic_apology-communication, .svg__ic_female, .svg__ic_basic-risk-management, .svg__ic_patient-centered-care, .svg__ic_chronic-pain-management, .svg__ic_pediatric-solutions, .svg__ic_hipaa, .svg__ic_preventing-diagnostic-error, .svg__ic_long-term-care, .svg__ic_preventing-health-care-workplace-violence, .svg__ic_claim-reviews, .svg__ic_sample-policies, .svg__ic_minute-for-medicine, .svg__ic_self-assessment, .svg__ic_multilingual-resources, .svg__ic_well-being-center, .svg__ic_managing-electronic-risk {
+            fill:#FDB415;
+        }
+    }
+}
+
+    

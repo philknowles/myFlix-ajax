@@ -1,0 +1,20 @@
+﻿//Manuals Page: Content
+.row__manual--content {
+    margin-left:0;
+    padding-bottom:40px;
+    @media only screen and (min-width:768px) {
+        margin-left:-15px;
+    }
+}
+
+.row__manual--link  {
+    display:block;
+    margin:0;
+    padding-bottom:15px;
+    color:$boston-blue;
+    font-size:20px;
+    font-weight:bold;
+    &:hover, &:focus, &:active {
+        text-decoration:underline;
+    }
+}

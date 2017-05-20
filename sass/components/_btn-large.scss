@@ -1,0 +1,32 @@
+﻿.btn__large-cta {
+    display:block;
+    width:100%;
+    margin-top:30px;
+    word-wrap: break-word;
+    color:$color-white !important;
+    border-radius: 5px;
+    background-color: rgb(222, 139, 39);
+    background-image: url(../images/svg/ic_keyboard_arrow_right_white_48px.svg);
+    background-size:30px;
+    background-repeat:no-repeat;
+    background-position:right center;
+    font-weight:bold;
+    span {
+        display:none;
+    }
+    &:hover, &:focus, &:active {
+        text-decoration:none;
+        color:$color-white;
+        transition: .5s;
+        background-color: rgb(254, 180, 1);
+    }
+    @media only screen and (min-width: 992px) {
+        span {
+            display:inline;
+        }
+    }
+}
+
+.f-large {
+    font-size:20px;
+}

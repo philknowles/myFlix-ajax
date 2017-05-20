@@ -1,0 +1,256 @@
+﻿#accordion {
+    margin-top: 30px;
+    p {
+        font-size:16px;
+    }
+    a:hover, a:focus, a:active {
+        text-decoration:none;
+    }
+    .fine-print {
+        font-size:11px;
+        color:$dusty-gray;
+        padding-top:15px;
+        &:last-child {
+            padding-bottom:25px;
+        }
+    }
+    .panel-author {
+        font-size:16px;
+        font-weight:normal;
+    }
+}
+
+.panel-heading {
+  padding: 0px;
+  margin-bottom: 12px;
+}
+a.panel-heading {
+  display: block;
+  transition: .5s;
+  overflow:auto;
+  padding-right:10px;
+}
+.panel-default .panel-heading[aria-expanded="true"],
+.panel-default .panel-heading a:hover,
+.panel-default .panel-heading a:focus,
+.panel-default a.panel-heading:hover,
+.panel-default a.panel-heading:focus {
+  background-color: $varden;
+}
+
+.panel-body {
+    padding:0;
+    padding-bottom:15px;
+}
+
+.panel-group {
+    clear:both;
+    overflow:auto;
+    display:block;
+    margin-bottom:0;
+    li {
+        clear:both;
+        margin-top:15px;
+        margin-bottom:15px;
+        a {
+            display:inline;
+            font-weight:bold;
+        }
+    }
+    p a, h4 a {
+        display:inline;
+        font-weight:bold;
+    }
+    ul {
+        margin:0; padding:0;
+    }
+    li li {
+        font-weight:normal;
+    }
+    li li > a {
+        background:none;
+    }
+}
+
+ul.panel-group__list li {
+    padding-left:15px;
+    background-image: url(../images/svg/ic_arrow.svg);
+    background-repeat: no-repeat;
+    background-size:10px;
+    background-position:0 5px;
+    font-weight:normal;
+}
+
+.pdf-resources {
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:table;
+    vertical-align:middle;
+    ul.col-md-6 {
+        li {
+            padding:0 30px 11px;
+        }
+    }
+    li {
+        padding:11px 30px;
+        background-image: url(../images/svg/ic_pdf-icon-blue.svg);
+        background-repeat: no-repeat;
+        background-size:25px;
+        background-position:0 5px;
+        a {
+            font-weight:bold;
+            font-size:14px;
+            width:80%;
+            padding:0 0 8px;
+        }
+    }
+    .last li:last-child {
+        padding-top:10px;
+    }
+}
+
+//Carried Over Part of the Accordion Functionality
+.panel,
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+  border: none;
+  box-shadow: none;
+}
+.panel-group .panel-heading a:hover,
+.panel-group .panel-heading a:focus,
+.panel-group a.panel-heading:hover,
+.panel-group a.panel-heading:focus {
+  text-decoration: none;
+}
+.panel-group .panel-heading.collapsed .icon-indicator {
+  background-color: $tropaz-blue;
+}
+.panel-group .panel-heading .icon-indicator {
+  background-color: $yellow-orange;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin-top: -2px;
+  font-size: 2.3125rem;
+  vertical-align: middle;
+  line-height: 3.125rem;
+  transition: .5s;
+}
+.panel-group .panel-heading.collapsed:hover .icon-indicator {
+  background-color: $yellow-orange;
+}
+.panel-group .panel-heading .icon-indicator:before {
+  font-family: 'Material Icons';
+  content: "\E5CE";
+  color: $color-white;
+}
+.panel-group .panel-heading.collapsed .icon-indicator:before {
+  font-family: 'Material Icons';
+  content: "\E5CF";
+  color: $color-white;
+}
+.panel-group .panel-heading.collapsed .panel-title {
+  vertical-align: middle;
+  line-height: 3.125rem;
+  color: $tropaz-blue;
+  transition: .5s;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.panel-group .panel-heading .panel-title,
+.panel-group .panel-heading.collapsed:hover .panel-title {
+  color: $zest-orange;
+  font-weight: bold;
+  vertical-align: middle;
+  line-height: 3.125rem;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 479px) {
+  .panel-group .panel-heading .panel-title,
+  .panel-group .panel-heading.collapsed:hover .panel-title {
+    color: $zest-orange;
+    font-size: 13px !important;
+    float:right;
+    width:76%;
+  }
+  .panel-group .panel-heading.collapsed .panel-title {
+    font-size: 13px !important;
+    float:right;
+    width:76%;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .panel-group .panel-heading .panel-title,
+  .panel-group .panel-heading.collapsed:hover .panel-title {
+    color: $zest-orange;
+    font-size: 1.125rem !important;
+  }
+  .panel-group .panel-heading.collapsed .panel-title {
+    font-size: 1.125rem !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .panel-group .panel-heading .panel-title,
+  .panel-group .panel-heading.collapsed:hover .panel-title {
+    color: $zest-orange;
+    font-size: 1.125rem !important;
+  }
+  .panel-group .panel-heading.collapsed .panel-title {
+    font-size: 1.125rem !important;
+  }
+}
+@media only screen and (min-width: 820px) {
+  .panel-group .panel-heading .panel-title,
+  .panel-group .panel-heading.collapsed:hover .panel-title {
+    color: $zest-orange;
+    font-size: 1.125rem !important;
+  }
+  .panel-group .panel-heading.collapsed .panel-title {
+    font-size: 1.125rem !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .panel-group .panel-heading .panel-title,
+  .panel-group .panel-heading.collapsed:hover .panel-title {
+    color: $zest-orange;
+    font-size: 1.25rem !important;
+  }
+  .panel-group .panel-heading.collapsed .panel-title {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .panel-group .panel-heading .panel-title,
+  .panel-group .panel-heading.collapsed:hover .panel-title {
+    color: $zest-orange;
+    font-size: 1.25rem !important;
+    vertical-align: middle;
+    line-height: 3.125rem;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+  }
+  .panel-group .panel-heading.collapsed .panel-title {
+    font-size: 1.25rem !important;
+    vertical-align: middle;
+    line-height: 3.125rem;
+    color: $tropaz-blue !important;
+    transition: .5s;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+  }
+}
+
+.panel-subtitle {
+    display:block;
+    padding-top:0;
+    padding-bottom:15px;
+    line-height:22px;
+    color: $tropaz-blue;
+    border-bottom:1px dashed;
+}

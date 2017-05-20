@@ -1,0 +1,45 @@
+﻿//Base More Universal Elements
+@import 'base/empty';
+@import 'base/img';
+@import 'base/gutters';
+@import 'base/fonts';
+@import 'base/colors';
+@import 'base/global';
+@import 'base/padding';
+@import 'base/icons';
+@import 'base/material';
+
+//Layout or Page Specific
+@import 'layout/multilingual';
+@import 'layout/self-assessments';
+@import 'layout/news-panel';
+@import 'layout/consultants';
+@import 'layout/main';
+@import 'layout/featured-consultant';
+@import 'layout/manual-content';
+@import 'layout/education';
+@import 'layout/bundled';
+@import 'layout/tools-resources';
+@import 'layout/side-nav';
+@import 'layout/well-being';
+
+//Components / Pieces of the Site requiring customization
+@import 'components/_divider.scss';
+@import 'components/svg';
+@import 'components/page-elements';
+@import 'components/buttons';
+@import 'components/btn-large';
+@import 'components/carousel';
+@import 'components/risklutions';
+@import 'components/box';
+@import 'components/accordion';
+@import 'components/panel-warning';
+@import 'components/modals';
+@import 'components/checkbox';
+@import 'components/filter-selection';
+@import 'components/cards';
+@import 'components/medium-print';
+@import 'components/dropdown';
+
+//Vendor
+@import 'vendor/retina';    

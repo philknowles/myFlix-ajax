@@ -1,0 +1,30 @@
+﻿.panel-warning {
+    display:block;
+    margin-top:50px;
+    padding:30px 25px 30px;
+    border:1px solid $champagne;
+    background-color:$pearl-lusta;
+    text-align:center;
+    strong {
+        font-size:20px;
+        height:36px;
+    }
+}
+
+.self-assessments-container {
+    .panel-warning {
+        text-align:left;
+        a {
+            display:inline;
+        }
+        strong {
+            font-size:16px;
+        }
+    }
+}
+
+.panel-warning-cta {
+    color:$boston-blue;
+    font-weight:bold;
+    text-decoration:underline;
+}

@@ -1,0 +1,55 @@
+﻿//Side Navigation for Bundled Solutions and Tools & Resources
+.bs__side-nav {
+    margin-top:20px;
+        ul {
+            display:none;
+            li {
+                display:inline;
+                margin:0;
+                padding:0 40px 0;
+                background-repeat:no-repeat;
+                background-size:35px;
+                svg {
+                    clear:both;
+                    display:block;
+                    float:left;
+                    width:36px;
+                    height:36px;
+                }
+                span {
+                    display:block;
+                    float:left;
+                    width:83%;
+                    padding:6px 0 0 15px;
+                    &:hover, &:focus, &:active {
+                        color:$polo-blue-rgb;
+                        text-decoration:underline !important;
+                    }
+                }
+                a {
+                    font-weight:bold;
+                }
+                .active svg, .active {
+                    color:$zest-orange;
+                    fill:$zest-orange;
+                }
+            }
+        }
+        ul ul {
+            clear:both;
+            display:block;
+        }
+        li li {
+            display:block;
+            padding:0 0 10px 50px;
+        }
+        li li a {
+            font-weight:normal;
+            font-size:14px;
+        }
+    @media only screen and (min-width:768px) {
+        ul {
+            display:block;
+        }
+    }
+}

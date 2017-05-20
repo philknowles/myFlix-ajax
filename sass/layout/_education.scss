@@ -1,0 +1,128 @@
+﻿//Education Specific Page
+
+.img-mmalogo {
+    float:left;
+    padding-right:15px;
+}
+
+.education__mmic-riskmgmt {
+    padding-bottom:25px;
+    h3, h3 a {
+        color:$zest-orange;
+        font-size:16px;
+        font-weight:bold;
+    }
+    ul {
+        li {
+            font-size:14px;
+            line-height:24px;
+            background: url(../images/svg/ic_arrow.svg) -4px 3px no-repeat;
+            background-size:11px;
+            padding-left:9px;
+            padding-bottom:10px;
+        }
+    }
+    ul ul li {
+        background: url(../images/svg/ic_arrow_forward_orange.svg) -4px 3px no-repeat;
+        background-size:18px;
+        padding-left:15px;
+        &:last-child {
+            padding-bottom:0;
+        }
+    }
+    strong {
+        display:block;
+        margin-top:20px;
+        font-size:14px;
+    }
+    a {
+        font-weight:bold;
+        line-height:1.48rem;
+    }
+
+    .btn__primary {
+        display:block;
+        width: 200px;
+        height: 30px;
+        padding: 3px 0px 3px 10px;
+        margin:10px 0 0;
+        color:$color-white;
+        border-radius: 5px;
+        background-color: rgb(222, 139, 39);
+        background-image: url(../images/svg/ic_keyboard_arrow_right_white_48px.svg);
+        background-size:25px;
+        background-repeat:no-repeat;
+        background-position:right center;
+        text-align:left;
+        font-size:14px;
+
+        &:hover, &:focus, &:active {
+            text-decoration:none;
+            background-color:rgb(254, 180, 1);
+            color:$color-white;
+        }
+    }
+}
+
+.education__cme {
+    border-bottom:1px dashed;
+    li {
+        margin-top:25px;
+        font-size:14px;
+        line-height:24px;
+        background: url(../images/svg/ic_arrow.svg) -4px 3px no-repeat;
+        background-size:11px;
+        padding-left:9px;
+        padding-bottom:10px;
+    }
+    li:last-child {
+        margin-bottom:25px;
+    }
+}
+
+.education__click {
+    font-weight:bold;
+    color: rgb(222, 139, 39);
+    text-decoration:underline;
+}
+
+.education__webinars, .education__upcoming {
+    clear:both;
+    padding-top:25px;
+    ul {
+        padding-left:0;
+    }
+}
+
+.education__live-programs {
+    padding-top:25px;
+    h3 {
+        padding-top:20px;
+        font-size:14px;
+    }
+    .btn__secondary {
+        display:block;
+        width: 200px;
+        height: 30px;
+        margin:10px 0 25px;
+        padding: 3px 0px 3px 10px;
+        color:$color-white;
+        border-radius: 5px;
+        background-color: rgb(38, 98, 148);
+        background-image: url(../images/svg/ic_keyboard_arrow_right_white_48px.svg);
+        background-size:25px;
+        background-repeat:no-repeat;
+        background-position:right center;
+        text-align:left;
+
+        &:hover, &:focus, &:active {
+            text-decoration:none;
+            background-color:rgb(50, 130, 192);
+            color:$color-white;
+        }
+    }
+    @media only screen and (min-width: 992px) {
+        padding-top:0;
+    }
+}
+
