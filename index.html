@@ -8,9 +8,17 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
     <style>
+        #search_results {
+            position:relative;
+        }
         #search_results img {
             max-height:250px;
             margin-bottom:15px;
+        }
+        #search_results div {
+            display:inline;
+            width:100%;
+            padding:5px;
         }
     </style>
 </head>
@@ -27,10 +35,23 @@
         </div>
     </header>
 
-    
+    <section class="row">
+        <div class="col-md-3">
+            <input class="pop" type="checkbox" name="popular" value="Popular Movies" />Popular Movies
+        </div>
+        <div class="col-md-3">
+            <input class="rec" type="checkbox" name="popular" value="Most Recent Movies" />Most Recent Movies
+        </div>
+        <div class="col-md-3">
+            <input class="top" type="checkbox" name="popular" value="Top Movies" />Top Movies
+        </div>
+        <div class="col-md-3">
+            <input class="gen" type="checkbox" name="popular" value="Genre Movies" />Genre Movies
+        </div>
+    </section>
 
     <p id="error"></p>
-    <ul id="search_results"></ul>
+    <div id="search_results"></div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -44,6 +65,10 @@
             movieName;
 
         $(document).ready(function () {
+            //$('input.pop').on('click', function () {
+            //    if ($(this).is(':checked')) {
+            //    }
+            //});
             $.ajax({
                 url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey, //General popular movies
                 //url: url + mode + input + apiKey,
@@ -56,7 +81,7 @@
             .done(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div class="col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
+                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
                     //$('#search_results').append('<h3>' + data.results[i].title + '</h3>');
                     //$('.slider').append('</div>');
                 }
@@ -65,44 +90,5 @@
     </script>
 
 
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-
-    <script>
-        $('.responsive').slick({
-            dots: true,
-            infinite: false,
-            speed: 300,
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            responsive: [
-              {
-                  breakpoint: 1024,
-                  settings: {
-                      slidesToShow: 3,
-                      slidesToScroll: 3,
-                      infinite: true,
-                      dots: true
-                  }
-              },
-              {
-                  breakpoint: 600,
-                  settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 2
-                  }
-              },
-              {
-                  breakpoint: 480,
-                  settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1
-                  }
-              }
-              // You can unslick at a given breakpoint now by adding:
-              // settings: "unslick"
-              // instead of a settings object
-            ]
-        });
-    </script>
 </body>
 </html>
