@@ -25,7 +25,8 @@
             })
             .done(function (data) {
                 console.log(data);
-                $('#details').append(data.overview);
+                $('#details').append('<img src="http://image.tmdb.org/t/p/w185/' + data.backdrop_path + '"/>');
+                $('#details').append('<p>' + data.overview + '</p>');
 
             });
         });
