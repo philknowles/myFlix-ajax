@@ -12,6 +12,7 @@
 
     <script>
         var apiKey = 'bfb94ae6dba3bb6d845da2c9830f097b';
+        var id = window.location.href.split('id=').pop();
 
         $(document).ready(function () {
             $.ajax({
@@ -25,11 +26,6 @@
             .done(function (data) {
                 console.log(data);
 
-                for (var i = 0; i < data.results.length; i++) {
-                    $('#details').append('<p>' + data.results[i].overview + '</p>');
-                    $('#search_results').append('<h3>' + data.results[i].title + '</h3>');
-                    //$('.slider').append('</div>');
-                }
             });
         });
     </script>
