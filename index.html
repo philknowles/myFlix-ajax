@@ -25,17 +25,14 @@
 <body>
 
     <header>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="col-md-6">
 
-            </div>
-            <div class="col-md-6 text-right">
-                <input type="search" name="search" id="movie-info" /><input type="submit" value="Search" />
-            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <input type="search" name="search" id="movie-info" /><input type="submit" value="Search" />
         </div>
     </header>
 
-    <section class="row">
         <div class="col-md-3">
             <input class="pop" type="checkbox" name="popular" value="Popular Movies" />Popular Movies
         </div>
@@ -48,12 +45,10 @@
         <div class="col-md-3">
             <input class="gen" type="checkbox" name="popular" value="Genre Movies" />Genre Movies
         </div>
-    </section>
 
     <p id="error"></p>
     <div class="slider responsive" id="search_results"></div>
     
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -67,49 +62,17 @@
             input,
             movieName;
 
-        function ajaxSlick() {
+
+        function fullyLoaded() {
             $('.responsive').slick({
-                dots: true,
-                infinite: false,
-                speed: 300,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                responsive: [
-                  {
-                      breakpoint: 1024,
-                      settings: {
-                          slidesToShow: 3,
-                          slidesToScroll: 3,
-                          infinite: true,
-                          dots: true
-                      }
-                  },
-                  {
-                      breakpoint: 600,
-                      settings: {
-                          slidesToShow: 2,
-                          slidesToScroll: 2
-                      }
-                  },
-                  {
-                      breakpoint: 480,
-                      settings: {
-                          slidesToShow: 1,
-                          slidesToScroll: 1
-                      }
-                  }
-                  // You can unslick at a given breakpoint now by adding:
-                  // settings: "unslick"
-                  // instead of a settings object
-                ]
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
             });
-        }
+        };
 
         $(document).ready(function () {
-            //$('input.pop').on('click', function () {
-            //    if ($(this).is(':checked')) {
-            //    }
-            //});
+
             $.ajax({
                 url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey, //General popular movies
                 //url: url + mode + input + apiKey,
@@ -119,20 +82,16 @@
             .error(function (e) {
                 console.log(e.message);
             })
-            .done(function (data) {
+            .success(function (data) {
                 console.log(data);
+                console.log(fullyLoaded);
                 for (var i = 0; i < data.results.length; i++) {
                     $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].backdrop_path + '"/></a></div>');
-                    //$('#search_results').append('<h3>' + data.results[i].title + '</h3>');
-                    //$('.slider').append('</div>');
-                    //$('.responsive').slick(ajaxSlick);
-                    //console.log(ajaxSlick);
                 }
-            })
-            .complete(function(data){
-                ajaxSlick();
             });
         });
+
+
     </script>
 
 
