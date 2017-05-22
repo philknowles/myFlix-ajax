@@ -51,18 +51,59 @@
     </section>
 
     <p id="error"></p>
-    <div id="search_results"></div>
+    <div class="slider responsive" id="search_results"></div>
+    
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="slick.js"></script>
+    <script>
+    </script>
     <script>
         var apiKey = 'bfb94ae6dba3bb6d845da2c9830f097b';
         var url = 'http://api.themoviedb.org/3/',
             mode = 'search/movie?query=',
             input,
             movieName;
+
+        function ajaxSlick() {
+            $('.responsive').slick({
+                dots: true,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                      breakpoint: 1024,
+                      settings: {
+                          slidesToShow: 3,
+                          slidesToScroll: 3,
+                          infinite: true,
+                          dots: true
+                      }
+                  },
+                  {
+                      breakpoint: 600,
+                      settings: {
+                          slidesToShow: 2,
+                          slidesToScroll: 2
+                      }
+                  },
+                  {
+                      breakpoint: 480,
+                      settings: {
+                          slidesToShow: 1,
+                          slidesToScroll: 1
+                      }
+                  }
+                  // You can unslick at a given breakpoint now by adding:
+                  // settings: "unslick"
+                  // instead of a settings object
+                ]
+            });
+        }
 
         $(document).ready(function () {
             //$('input.pop').on('click', function () {
@@ -81,10 +122,15 @@
             .done(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
+                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].backdrop_path + '"/></a></div>');
                     //$('#search_results').append('<h3>' + data.results[i].title + '</h3>');
                     //$('.slider').append('</div>');
+                    //$('.responsive').slick(ajaxSlick);
+                    //console.log(ajaxSlick);
                 }
+            })
+            .complete(function(data){
+                ajaxSlick();
             });
         });
     </script>
