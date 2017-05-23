@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.min.css" />
     <style>
         #search_results {
             position:relative;
@@ -23,32 +24,19 @@
     </style>
 </head>
 <body>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col-md-6">
+                <h1 class="logo">myFlix</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <!--<input type="search" name="search" id="movie-info" /><input type="submit" value="Search" />-->
+            </div>
+        </header>
 
-    <header>
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6 text-right">
-            <input type="search" name="search" id="movie-info" /><input type="submit" value="Search" />
-        </div>
-    </header>
-
-        <div class="col-md-3">
-            <input class="pop" type="checkbox" name="popular" value="Popular Movies" />Popular Movies
-        </div>
-        <div class="col-md-3">
-            <input class="rec" type="checkbox" name="popular" value="Most Recent Movies" />Most Recent Movies
-        </div>
-        <div class="col-md-3">
-            <input class="top" type="checkbox" name="popular" value="Top Movies" />Top Movies
-        </div>
-        <div class="col-md-3">
-            <input class="gen" type="checkbox" name="popular" value="Genre Movies" />Genre Movies
-        </div>
-
-    <p id="error"></p>
-    <div class="slider responsive" id="search_results"></div>
-
+        <p id="error"></p>
+        <div class="slider responsive" id="search_results"></div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
