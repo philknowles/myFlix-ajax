@@ -36,6 +36,9 @@
 
         <p id="error"></p>
         <div class="slider responsive" id="search_results"></div>
+
+        <button class="btn">Button</button>
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -47,7 +50,8 @@
         var url = 'http://api.themoviedb.org/3/',
             mode = 'search/movie?query=',
             input,
-            movieName;
+            movieName,
+            page = 2;
 
 
         function fullyLoaded() {
@@ -61,7 +65,7 @@
         $(document).ready(function () {
 
             $.ajax({
-                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey, //General popular movies
+                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + page, //General popular movies
                 //url: url + mode + input + apiKey,
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
@@ -75,8 +79,10 @@
                 for (var i = 0; i < data.results.length; i++) {
                     $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].backdrop_path + '"/></a></div>');
                 }
+                $('.btn').on('click', function () {
+                    page++;
+                });
             });
-
         });
 
 
