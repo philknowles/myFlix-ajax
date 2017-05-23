@@ -3,6 +3,7 @@
 <head>
     <title>myFlix Ajax Movie Database</title>
     <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <!-- Add the slick-theme.css if you want default styling -->
@@ -10,34 +11,47 @@
     <link rel="stylesheet" type="text/css" href="css/styles.min.css" />
     <style>
         #search_results {
-            position:relative;
+            position: relative;
         }
-        #search_results img {
-            max-height:250px;
-            margin-bottom:15px;
-        }
-        #search_results div {
-            display:inline;
-            width:100%;
-            padding:5px;
-        }
+
+            #search_results img {
+                max-height: 250px;
+                margin-bottom: 15px;
+            }
+
+            #search_results div {
+                display: inline;
+                width: 100%;
+                padding: 5px;
+            }
     </style>
 </head>
 <body>
     <div class="container-fluid">
         <header class="row">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <h1 class="logo">myFlix</h1>
             </div>
-            <div class="col-md-6 text-right">
-                <!--<input type="search" name="search" id="movie-info" /><input type="submit" value="Search" />-->
+            <div class="col-md-2">
+                <div class="material-icons icon-search">search</div>
             </div>
         </header>
+        <section class="row search">
+            <div class="col-md-11">
+                <input type="text" id="searchMovies" name="q" />
+            </div>
+            <div class="col-md-1"><div class="material-icons btn-search">search</div></div>
+        </section>
+    </div>
+    <img src="images/moviepopcorn.jpg" class="hero" />
+    <div class="container-fluid">
 
-        <p id="error"></p>
-        <div class="slider responsive" id="search_results"></div>
-
-        <button class="btn">Button</button>
+        <section class="row">
+            <div class="col-md-12">
+                <p id="error"></p>
+                <div class="slider responsive" id="search_results"></div>
+            </div>
+        </section>
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -51,21 +65,13 @@
             mode = 'search/movie?query=',
             input,
             movieName,
-            page = 2;
+            page = 0;
 
-
-        function fullyLoaded() {
-            $('.responsive').slick({
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-        };
 
         $(document).ready(function () {
 
             $.ajax({
-                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + page, //General popular movies
+                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + ++page, //General popular movies
                 //url: url + mode + input + apiKey,
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
@@ -75,17 +81,42 @@
             })
             .success(function (data) {
                 console.log(data);
-                console.log(fullyLoaded);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].backdrop_path + '"/></a></div>');
+                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
                 }
                 $('.btn').on('click', function () {
-                    page++;
+                    page;
                 });
             });
         });
 
+        //$(document).ready(function () {
+        //    $('.btn-search').on('click', function () {
+        //        var input = $('#searchMovies').val(),
+        //            movieName = encodeURI(input);
+        //        $.ajax({
+        //            type: 'GET',
+        //            url: url + mode + input + apiKey,
+        //            async:false,
+        //            jsonCallback: 'testing',
+        //            contentType: 'application/json',
+        //            dataType: 'jsonp',
+        //        })
+        //        .error(function (e) {
+        //            console.log(e.message);
+        //        })
+        //        .success(function (data) {
+        //            console.dir(data);
+        //            //for (var i = 0; i < data.results.length; i++) {
+        //            //    $('#search_results').append('<div class="col-md-3"><a href="details.html?id=' + data.results[i].title + '">' + data.results[i].name + '</a></div>');
+        //            //}
+        //        });
+        //    });
+        //});
 
+        $('.icon-search').on('click', function () {
+            $('.search').slideToggle();
+        });
     </script>
 
 
