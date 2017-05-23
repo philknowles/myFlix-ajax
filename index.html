@@ -48,11 +48,10 @@
 
     <p id="error"></p>
     <div class="slider responsive" id="search_results"></div>
-    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="slick.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script>
     </script>
     <script>
@@ -88,11 +87,8 @@
                 for (var i = 0; i < data.results.length; i++) {
                     $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].backdrop_path + '"/></a></div>');
                 }
-
-                //setTimeout(function () {
-                //    $('.responsive').slick();
-                //}, 2000);
             });
+
         });
 
 
