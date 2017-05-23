@@ -88,6 +88,10 @@
                 for (var i = 0; i < data.results.length; i++) {
                     $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].backdrop_path + '"/></a></div>');
                 }
+
+                //setTimeout(function () {
+                //    $('.responsive').slick();
+                //}, 2000);
             });
         });
 

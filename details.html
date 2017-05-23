@@ -21,7 +21,7 @@
 
         $(document).ready(function () {
             $.ajax({
-                url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey,
+                url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&append_to_response=videos',
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
             })
@@ -30,6 +30,7 @@
             })
             .done(function (data) {
                 console.log(data);
+                $('#details').append('<iframe id="ytplayer" type="text/html" width="640" height="360"  src="https://www.youtube.com/embed/' + data.videos.results[0].id + '" frameborder="0"></iframe>');
                 $('#details').append('<img src="http://image.tmdb.org/t/p/w185/' + data.poster_path + '" class="backdrop" />');
                 $('#details').append('<p>' + data.overview + '</p>');
 
