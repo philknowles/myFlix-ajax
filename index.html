@@ -77,7 +77,7 @@
             .success(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span>' + data.results[i].overview + '</p><p><a href="details.html?id="' + data.results[i].id + '">View Movie Details</a></div></div>');
+                    $('#search_results').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span>' + data.results[i].overview + '</p><p><a href="details.html?id=' + data.results[i].id + '">View Movie Details</a></div></div>');
 
                 }
                                 
@@ -90,7 +90,7 @@
                 var input = $('#searchMovies').val();
                 $.ajax({
                     type: 'GET',
-                    url: 'http://api.themoviedb.org/3/search/movie?api_key=bfb94ae6dba3bb6d845da2c9830f097b&query=' + input,
+                    url: 'http://api.themoviedb.org/3/search/movie?api_key=bfb94ae6dba3bb6d845da2c9830f097b&query=' + input + '&append_to_response=null',
                     async: false,
                     jsonCallback: 'testing',
                     contentType: 'application/json',
