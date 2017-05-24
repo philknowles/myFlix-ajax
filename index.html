@@ -19,11 +19,6 @@
                 margin-bottom: 15px;
             }
 
-            #search_results div {
-                display: inline;
-                width: 100%;
-                padding: 5px;
-            }
     </style>
 </head>
 <body>
@@ -81,7 +76,7 @@
             .success(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
+                    $('#search_results').append('<div class="col-md-6 movie-card"><div class="col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p>' + data.results[i].overview + '</p></div></div>');
 
                 }
                                 
