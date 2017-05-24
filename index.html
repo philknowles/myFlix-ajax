@@ -50,6 +50,7 @@
             <div class="col-md-12">
                 <p id="error"></p>
                 <div class="slider responsive" id="search_results"></div>
+                <ul class="pagination"></ul>
             </div>
         </section>
 
@@ -57,8 +58,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <script>
-    </script>
     <script>
         var apiKey = 'bfb94ae6dba3bb6d845da2c9830f097b';
         var url = 'http://api.themoviedb.org/3/',
@@ -83,10 +82,10 @@
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
                     $('#search_results').append('<div><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div>');
+
                 }
-                $('.btn').on('click', function () {
-                    page;
-                });
+                                
+                $('.pagination').append('<li><a href="https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + ++page + '">' + page + '</a></li>');
             });
         });
 
@@ -97,7 +96,7 @@
         //        $.ajax({
         //            type: 'GET',
         //            url: url + mode + input + apiKey,
-        //            async:false,
+        //            async: false,
         //            jsonCallback: 'testing',
         //            contentType: 'application/json',
         //            dataType: 'jsonp',
@@ -117,6 +116,7 @@
         $('.icon-search').on('click', function () {
             $('.search').slideToggle();
         });
+
     </script>
 
 
