@@ -1,8 +1,9 @@
 ﻿.movie-card {
-    background-color:rgba(0,0,0,0.3);
-    padding:15px 5px 0;
+    height:305px;
     margin-bottom:15px;
     margin-right:15px;
+    padding:15px 5px 0;
+    background-color:rgba(0,0,0,0.3);
     box-shadow: 0 0 5px 1px #0d0d0d;
     h3 {
         color:$color-atlantis;
@@ -24,4 +25,5 @@
 span.overview {
     display:block;
     overflow:hidden;
+    max-height:160px;
 }
