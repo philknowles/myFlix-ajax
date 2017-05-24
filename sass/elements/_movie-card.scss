@@ -2,10 +2,21 @@
     background-color:rgba(0,0,0,0.3);
     padding:15px 5px 0;
     margin-bottom:15px;
-    width:49%;
     margin-right:15px;
     box-shadow: 0 0 5px 1px #0d0d0d;
+    h3 {
+        color:$color-atlantis;
+    }
     p {
-        padding:30px 0 15px;
+        padding:0 0 15px;
+        color:$color-nevada;
+    }
+    .release-date {
+        display:block;
+        color:$color-nevada;
+        padding-bottom:15px;
+    }
+    @media only screen and (min-width:992px) {
+        width:49%;
     }
 }

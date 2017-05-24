@@ -3,6 +3,7 @@
 <head>
     <title>myFlix Ajax Movie Database</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
@@ -76,7 +77,7 @@
             .success(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div class="col-md-6 movie-card"><div class="col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p>' + data.results[i].overview + '</p></div></div>');
+                    $('#search_results').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span>' + data.results[i].overview + '</p><p><a href="details.html?id="' + data.results[i].id + '">View Movie Details</a></div></div>');
 
                 }
                                 
@@ -84,29 +85,31 @@
             });
         });
 
-        //$(document).ready(function () {
-        //    $('.btn-search').on('click', function () {
-        //        var input = $('#searchMovies').val(),
-        //            movieName = encodeURI(input);
-        //        $.ajax({
-        //            type: 'GET',
-        //            url: url + mode + input + apiKey,
-        //            async: false,
-        //            jsonCallback: 'testing',
-        //            contentType: 'application/json',
-        //            dataType: 'jsonp',
-        //        })
-        //        .error(function (e) {
-        //            console.log(e.message);
-        //        })
-        //        .success(function (data) {
-        //            console.dir(data);
-        //            //for (var i = 0; i < data.results.length; i++) {
-        //            //    $('#search_results').append('<div class="col-md-3"><a href="details.html?id=' + data.results[i].title + '">' + data.results[i].name + '</a></div>');
-        //            //}
-        //        });
-        //    });
-        //});
+        $(document).ready(function () {
+            $('.btn-search').on('click', function () {
+                var input = $('#searchMovies').val();
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://api.themoviedb.org/3/search/movie?api_key=bfb94ae6dba3bb6d845da2c9830f097b&query=' + input,
+                    async: false,
+                    jsonCallback: 'testing',
+                    contentType: 'application/json',
+                    dataType: 'jsonp',
+                })
+                .error(function (e) {
+                    console.log(e.message);
+                })
+                .success(function (data) {
+                    console.dir(data);
+                    //$('#search_results').prepend('<img src="http://image.tmdb.org/t/p/w185/' + response.results[0].poster_path + '"/>');
+                    for (var i = 0; i < data.results.length; i++) {
+                        $('#search_results').prepend('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span>' + data.results[i].overview + '</p><p><a href="details.html?id="' + data.results[i].id + '">View Movie Details</a></div></div>');
+
+                    }
+
+                });
+            });
+        });
 
         $('.icon-search').on('click', function () {
             $('.search').slideToggle();
