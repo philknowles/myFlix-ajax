@@ -17,7 +17,8 @@
 
             #search_results img {
                 max-height: 250px;
-                margin-bottom: 15px;
+                display:block;
+                margin:0 auto 15px;
             }
 
     </style>
@@ -48,7 +49,6 @@
             <div class="col-md-12">
                 <p id="error"></p>
                 <div class="slider responsive" id="search_results"></div>
-                <ul class="pagination"></ul>
             </div>
         </section>
 
@@ -80,7 +80,7 @@
             .success(function (data) {
                 console.log(data);
                 for (var i = 0; i < data.results.length; i++) {
-                    $('#search_results').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-4 col-lg-4"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-8 col-lg-8"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span><span class="overview">' + data.results[i].overview + '</span></p><p><a href="details.html?id=' + data.results[i].id + '">View Movie Details</a></div></div>');
+                    $('#search_results').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-5 col-lg-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-7 col-lg-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span><span class="overview">' + data.results[i].overview + '</span></p><p><a href="details.html?id=' + data.results[i].id + '">View Movie Details</a></div></div>');
 
                 }
                 $('.pagination').append('<li><a href="https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + ++page + '">' + page + '</a></li>');
@@ -106,7 +106,7 @@
                     console.dir(data);
                     //$('#search_results').prepend('<img src="http://image.tmdb.org/t/p/w185/' + response.results[0].poster_path + '"/>');
                     for (var i = 0; i < data.results.length; i++) {
-                        $('#search_results').prepend('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span><span class="overview">' + data.results[i].overview + '</span></p><p><a href="details.html?id="' + data.results[i].id + '">View Movie Details</a></div></div>');
+                        $('#search_results').prepend('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-5 col-lg-3"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-7 col-lg-9"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span><span class="overview">' + data.results[i].overview + '</span></p><p><a href="details.html?id="' + data.results[i].id + '">View Movie Details</a></div></div>');
                         $('img[src*="null"]').replaceWith('<img src="images/noimage.png" />');
 
                     }
