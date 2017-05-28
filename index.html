@@ -70,7 +70,7 @@
         $(document).ready(function () {
 
             $.ajax({
-                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&append_to_response=videos', //General popular movies
+                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + ++page + '&append_to_response=videos', //General popular movies
                 //url: url + mode + input + apiKey,
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
