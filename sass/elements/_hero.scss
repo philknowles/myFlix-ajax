@@ -1,5 +1,27 @@
 ﻿.hero {
+    position:relative;
     width:100%;
     max-width:100%;
-    margin-bottom:55px;
+    height:550px;
+    overflow:hidden;
+    padding:3% 5%;
+    h3 {
+        color:$color-atlantis;
+        padding-bottom:30px;
+        font-size:50px;
+        text-transform:uppercase;
+    }
 }
+
+.hero-poster { 
+    box-shadow:0 0 10px #000;
+}
+
+.backdrop {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    opacity:.1;
+}
+

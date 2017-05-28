@@ -42,7 +42,7 @@
             <div class="col-md-1"><div class="material-icons btn-search">search</div></div>
         </section>
     </div>
-    <img src="images/moviepopcorn.jpg" class="hero" />
+    <div class="hero"></div>
     <div class="container-fluid">
 
         <section class="row">
@@ -69,7 +69,7 @@
         $(document).ready(function () {
 
             $.ajax({
-                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&page=' + ++page, //General popular movies
+                url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&append_to_response=videos', //General popular movies
                 //url: url + mode + input + apiKey,
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
@@ -79,6 +79,8 @@
             })
             .success(function (data) {
                 console.log(data);
+                $('.hero').append('<img class="backdrop" src="http://image.tmdb.org/t/p/w780/' + data.results[2].backdrop_path + '"/>');
+                $('.hero').append('<div class="col-md-12"><div class="col-md-7 intro"><h3>' + data.results[2].title + '</h3><span class="overview">' + data.results[2].overview + '</span></div><div class="col-md-5 text-right"><a href="details.html?id=' + data.results[2].id + '"><img class=" hero-poster" src="http://image.tmdb.org/t/p/w300/' + data.results[2].poster_path + '"/></a></div></div>')
                 for (var i = 0; i < data.results.length; i++) {
                     $('#search_results').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-5 col-lg-4"><a href="details.html?id=' + data.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-7 col-lg-8"><h3>' + data.results[i].title + '</h3>' + '<p><span class="release-date">' + data.results[i].release_date + '</span><span class="overview">' + data.results[i].overview + '</span></p><p><a href="details.html?id=' + data.results[i].id + '">View Movie Details</a></div></div>');
 
