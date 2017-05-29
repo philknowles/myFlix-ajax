@@ -32,3 +32,15 @@
     opacity:.1;
 }
 
+.btn-featured {
+    background-color:$color-atlantis;
+    color:$color-cinder;
+    padding:10px;
+    border-radius:5px;
+    transition:all 0.5s ease;
+    &:hover, &:focus, &:active {
+        background-color:$color-abbey;
+        color:$color-cinder;
+        text-decoration:none;
+    }
+}
