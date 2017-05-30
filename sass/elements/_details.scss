@@ -7,12 +7,35 @@
         text-transform:uppercase;
         padding-top:00px;
     }
-    p {
-        padding-bottom:16px;
-        line-height:50px;
-        font-family:Arial, Helvetica, sans-serif;
+    h4 {
+        color:$color-atlantis;
+        text-transform:uppercase;
+    }
+    h4.tagline {
+        margin-bottom:25px;
+        color:$color-nevada;
     }
     strong {
         color:$color-atlantis;
+    }
+}
+
+.similar-movies {
+    h3 {
+        font-size:24px;
+        padding-top:35px;
+    }
+    h4 {
+        padding-bottom:15px;
+        text-align:center;
+    }
+    p {
+        line-height:2.2rem;
+    }
+    @media only screen and (min-width: 480px) {
+        h3 {
+            font-size:24px;
+            padding-top:0;
+        }
     }
 }
