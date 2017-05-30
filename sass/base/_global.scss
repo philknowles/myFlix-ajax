@@ -14,3 +14,11 @@ h1, h1, h3, h4, h5, h6, p, ul, li, a {
 ul {
     list-style:none;
 }
+
+a {
+    color:$color-atlantis;
+    transition:all .5s ease-in;
+    &:hover, &:focus, &:active {
+        color:$color-crete;
+    }
+}
