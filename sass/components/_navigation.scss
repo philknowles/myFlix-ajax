@@ -1,0 +1,14 @@
+﻿ul {
+    padding:10px 0 0;
+    margin:0;
+    position:relative;
+    z-index:9999;
+    a{
+        color:#fff;
+        cursor:pointer;
+        transition:all 0.5s ease;
+        &:hover, &:focus, &:active {
+            color:$color-atlantis;
+        }
+    }
+}
