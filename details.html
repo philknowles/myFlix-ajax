@@ -28,10 +28,11 @@
     <div class="container-fluid">
         <div class="row">
             <section class="hero">
-                <div class="col-md-6">
-                    <div id="details"></div>
+                <div class="col-md-5">
+                    <div id="poster"></div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
+                    <div id="details"></div>
                     <div id="trailer"></div>
                 </div>
             </section>
@@ -60,6 +61,7 @@
             .done(function (data) {
                 console.log(data);
                 $('.hero').append('<img class="backdrop" src="http://image.tmdb.org/t/p/w780/' + data.backdrop_path + '"/>');
+                $('#poster').append('<img src="http://image.tmdb.org/t/p/w500/' + data.poster_path + '"/>');
                 $('#trailer').append('<iframe class="trailer" src="https://www.youtube.com/embed/' + data.videos.results[0].key + '" frameborder="0" allowfullscreen></iframe>');
                 $('#details').append('<h3>' + data.title + '</h3><h4 class="tagline">' + data.tagline + '</h4><h4>Date</h4><p>' + data.release_date + '</p><h4>Overview</h4><p>' + data.overview + '</p><h4>Genres</h4><p>' + data.genres[0].name + ', ' + data.genres[1].name + ', ' + data.genres[2].name + '</p></div>');
                 for (var i = 0; i < data.similar.results.length; i++) {
