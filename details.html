@@ -47,7 +47,7 @@
 
         $(document).ready(function () {
             $.ajax({
-                url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&append_to_response=videos',
+                url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + apiKey + '&append_to_response=videos,images,credits,reviews,similar',
                 dataType: 'jsonp',
                 jsonCallback: 'testing'
             })
@@ -57,7 +57,7 @@
             .done(function (data) {
                 console.log(data);
                 $('#trailer').append('<iframe class="trailer" src="https://www.youtube.com/embed/' + data.videos.results[0].key + '" frameborder="0" allowfullscreen></iframe>');
-                $('#details').append('<h3>' + data.title + '</h3><h4>Overview</h4><p>' + data.overview + '</p><h4>Genres</h4><p>' + data.genres[0].name + ', ' + data.genres[1].name + ', ' + data.genres[2].name + '</p></div>');
+                $('#details').append('<h3>' + data.title + '</h3><h4>Date</h4><p>' + data.release_date + '</p><h4>Overview</h4><p>' + data.overview + '</p><h4>Genres</h4><p>' + data.genres[0].name + ', ' + data.genres[1].name + ', ' + data.genres[2].name + '</p></div>');
             });
         });
     </script>
