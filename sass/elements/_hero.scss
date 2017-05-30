@@ -2,7 +2,7 @@
     position:relative;
     width:100%;
     max-width:100%;
-    height:550px;
+    height:100%;
     overflow:hidden;
     padding:3% 5%;
     margin-bottom:30px;
@@ -14,17 +14,9 @@
         text-transform:uppercase;
         padding-top:50px;
     }
-    p {
-        font-size:30px;
-        line-height:50px;
-    }
-}
-
-.details .hero {
-    margin-bottom:0;
-    h3 {
-        font-size:50px;
-        padding-top:0;
+    h4 {
+        color:$color-atlantis;
+        text-transform:uppercase;
     }
 }
 
@@ -37,6 +29,7 @@
     top:0;
     left:0;
     width:100%;
+    height:100%;
     opacity:.1;
 }
 
