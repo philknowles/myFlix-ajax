@@ -7,6 +7,8 @@
         color:#fff;
         cursor:pointer;
         transition:all 0.5s ease;
+        font-family:$font-oswald;
+        text-transform:uppercase;
         &:hover, &:focus, &:active {
             color:$color-atlantis;
         }
