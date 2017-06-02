@@ -18,4 +18,7 @@ $(document).ready(function () {
             $('#similar').append('<div class="col-xs-12 col-md-6 movie-card"><div class="col-xs-12 col-md-5 col-lg-4"><a href="details.html?id=' + data.similar.results[i].id + '"><img src="http://image.tmdb.org/t/p/w185/' + data.similar.results[i].poster_path + '"/></a></div><div class="col-xs-12 col-md-7 col-lg-8"><h3>' + data.similar.results[i].title + '</h3>' + '<p><span class="release-date">' + data.similar.results[i].release_date + '</span><span class="overview">' + data.similar.results[i].overview + '</span></p><p><a href="details.html?id=' + data.similar.results[i].id + '">View Movie Details</a></div></div>');
         }
     });
+    $('a#back').on('click', function () {
+        location.href = document.referrer;
+    });
 });

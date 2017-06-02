@@ -21,7 +21,15 @@
 }
 
 .movie-details {
+    position:relative;
+    z-index:9999;
     padding:55px 0 0;
+    a {
+        cursor:pointer;
+        &:hover, &:focus, &:active {
+            text-decoration:none;
+        }
+    }
 } 
 
 .similar-movies {
